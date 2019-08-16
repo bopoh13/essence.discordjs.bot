@@ -1,0 +1,27 @@
+# This project
+*.log
+#$ git update-index --assume-unchanged config.json
+config.json
+
+# Dependency directories
+node_modules/
+
+#############
+## Windows detritus
+#############
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.msi
+
+# Windows shortcuts
+*.lnk

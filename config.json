@@ -1,0 +1,6 @@
+{
+	"token": "Insert.Bot.TOKEN.here",
+	"ownid": "18_digits,not_used_now",
+	"prefix": "/",
+	"state": ["available", "idle", "dnd", "invisible"]
+}

@@ -1,0 +1,12 @@
+# Use the attribute in Git 2.18+ only if you cannot store a file in UTF-8 encoding
+#* text	working-tree-encoding=UTF-8
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Set default behavior to automatically normalize line endings
+*.bat	text	eol=crlf
+*.js	text	eol=crlf
+*.md	text	eol=crlf
+config.json	text	eol=crlf
+LICENSE	text

@@ -1,0 +1,28 @@
+{
+	"name": "essence_discordjs_bot",
+	"version": "r100",
+	"author": "lapscar",
+	"description": "Bot e$$ence made using DiscordJS",
+	"keywords": [
+		"bot",
+		"client",
+		"discordjs"
+	],
+	"license": "AGPL-3.0",
+	"main": "essence_bot.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node essence_bot.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bopoh13/essence.discordjs.bot"
+	},
+	"bugs": {
+		"url": "https://github.com/bopoh13/essence.discordjs.bot/issues"
+	},
+	"homepage": "https://github.com/bopoh13/essence.discordjs.bot#readme",
+	"dependencies": {
+		"discord.js": "^11.5.1"
+	}
+}
