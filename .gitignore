@@ -5,20 +5,20 @@ config.json
 
 # Dependency directories
 node_modules/
+package-lock.json
 
 #############
 ## Windows detritus
 #############
 
 # Windows image file caches
-Thumbs.db
-ehthumbs.db
+*[Tt]humbs.db
 
 # Folder config file
 [Dd]esktop.ini
 
 # Recycle Bin used on file shares
-$RECYCLE.BIN/
+$R[Ee][Cc][Yy][Cc][Ll][Ee].BIN/
 
 # Windows Installer files
 *.msi

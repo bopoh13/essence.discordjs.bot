@@ -1,3 +1,8 @@
+TITLE Discord Bot - %~0
+
 node --version
-node essence_bot.js
-pause
+::npm list --depth=0
+::--trace-warnings - отработал неделю без 2-й ошибки
+node --trace-warnings --expose-gc essence_bot.js
+
+PAUSE

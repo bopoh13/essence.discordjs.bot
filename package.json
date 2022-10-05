@@ -1,7 +1,7 @@
 {
 	"name": "essence_discordjs_bot",
-	"version": "r100",
-	"author": "lapscar",
+	"version": "0.2.0",
+	"author": "h8nor",
 	"description": "Bot e$$ence made using DiscordJS",
 	"keywords": [
 		"bot",
@@ -12,17 +12,20 @@
 	"main": "essence_bot.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node essence_bot.js"
+		"start": "node --max-old-space-size=20 --expose-gc essence_bot.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bopoh13/essence.discordjs.bot"
+		"url": "github.com/h8nor/essence.discordjs.bot"
 	},
 	"bugs": {
-		"url": "https://github.com/bopoh13/essence.discordjs.bot/issues"
+		"url": "https://github.com/h8nor/essence.discordjs.bot/issues"
 	},
-	"homepage": "https://github.com/bopoh13/essence.discordjs.bot#readme",
+	"homepage": "https://github.com/h8nor/essence.discordjs.bot#eence-bot",
 	"dependencies": {
-		"discord.js": "^11.5.1"
+		"discord.js": "^14.3"
+	},
+	"engines": {
+		"node": ">=16.9.0"
 	}
 }
