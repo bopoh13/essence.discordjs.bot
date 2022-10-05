@@ -2,9 +2,9 @@
 
 # e$$ence Bot
 
-[![Build Status](//img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fh8nor%2Fessence.discordjs.bot%2Fbadge%3Fref%3Dmaster&style=popout)](//actions-badge.atrox.dev/h8nor/essence.discordjs.bot/goto?ref=master)
-[![Dependency version](//img.shields.io/github/package-json/dependency-version/h8nor/essence.discordjs.bot/discord.js.svg?logo=npm&maxAge=3600)](../../network/dependencies) 
-[![Licence](//img.shields.io/github/license/h8nor/essence.discordjs.bot?maxAge=3600)](//choosealicense.com/licenses/agpl-3.0/)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fh8nor%2Fessence.discordjs.bot%2Fbadge%3Fref%3Dmaster&style=popout)](//actions-badge.atrox.dev/h8nor/essence.discordjs.bot/goto?ref=master)
+[![Dependency version](https://img.shields.io/github/package-json/dependency-version/h8nor/essence.discordjs.bot/discord.js.svg?logo=npm&maxAge=3600)](../../network/dependencies) 
+[![Licence](https://img.shields.io/github/license/h8nor/essence.discordjs.bot?maxAge=3600)](//choosealicense.com/licenses/agpl-3.0/)
 
 ## Установка
 
@@ -38,6 +38,11 @@
 
 [discordapp.com]: //discordapp.com/developers/
 [Node.js&reg;]: //nodejs.org/dist/latest-v16.x/
+
+### Примечание: установить зависимости
+
+1. https://github.com/danielzzz/node-ping
+2. ? `npm install moment-timezone`
 
 ## Links
 
