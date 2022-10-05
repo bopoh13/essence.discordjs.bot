@@ -30,7 +30,6 @@ jobs:
           cache: 'npm'
 
       - name: Use discord.js
-        uses: discordjs/discord.js@v14.3
         run: npm install discord.js
       
       - run: npm ci
