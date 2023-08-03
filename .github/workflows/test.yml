@@ -69,4 +69,4 @@ jobs:
           npm run build --if-present
           npm run start
         env:
-          myToken: ${{ secrets.CONFIG_BOT_TOKEN }}
+          TOKEN: ${{ secrets.CONFIG_BOT_TOKEN }}

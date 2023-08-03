@@ -21,7 +21,7 @@
 	"bugs": {
 		"url": "https://github.com/h8nor/essence.discordjs.bot/issues"
 	},
-	"homepage": "https://github.com/h8nor/essence.discordjs.bot#eence-bot",
+	"homepage": "https://github.com/h8nor/essence.discordjs.bot#README",
 	"dependencies": {
 		"discord.js": "^14.3"
 	},

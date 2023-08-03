@@ -122,7 +122,7 @@ client.on('messageCreate', async (message) => {
 	}
 });
 
-client.login(token)
+client.login(process.env.TOKEN)
 	.then(() => {
 		client.user.setStatus(state[1]);
 	})
