@@ -44,7 +44,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - package: 'discord.js'
+          - package: 'discordjs/discord.js@^14.3'
             folder: 'discord.js'
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         node-version: [ '16.x', '18.x' ]
