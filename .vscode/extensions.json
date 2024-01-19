@@ -1,7 +1,8 @@
 {
     "recommendations": [
         "swellaby.node-pack",
-        "darkempire78.discord-tools",
+        "icrawl.discord-vscode",
+        //"darkempire78.discord-tools" Warning! https://github.com/Darkempire78/Discord-Tools/commit/f36474ef
         "gtjman.discord-js-docs"
     ]
 }

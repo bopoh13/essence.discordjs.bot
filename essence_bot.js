@@ -1,29 +1,30 @@
-// charset=UTF-8; permissions=Send Messages
+'use strict'; // charset=UTF-8; https://gist.github.com/koad/316b265a91d933fd1b62dddfcc3ff584
 // https://discordapi.com/permissions.html
 
 // Создать экземпляр клиента Discord
-const Discord = require('discord.js');
-const client = new Discord.Client({
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const client = new Client({
+	botId: "essence",
 	intents: [
-		"Guilds", // for guild related things
-		//"GuildMembers", // for guild members related things
-		//"GuildBans", // for manage guild bans
-		//"GuildEmojisAndStickers", // for manage emojis and stickers
-		//"GuildIntegrations", // for discord Integrations
-		//"GuildWebhooks", // for discord webhooks
-		//"GuildInvites", // for guild invite managing
-		//"GuildVoiceStates", // for voice related things
-		//"GuildPresences", // for user presence things
-		"GuildMessages", // for guild messages things
-		//"GuildMessageReactions", // for message reactions things
-		//"GuildMessageTyping", // for message typing things
-		//"DirectMessages", // for dm messages
-		//"DirectMessageReactions", // for dm message reaction
-		//"DirectMessageTyping", // for dm message typing
-		"MessageContent", // enable if you need message content things
+		GatewayIntentBits.Guilds, // for guild related things
+		//GatewayIntentBits.GuildMembers, // for guild members related things
+		//GatewayIntentBits.GuildBans, // for manage guild bans
+		//GatewayIntentBits.GuildEmojisAndStickers, // for manage emojis and stickers
+		//GatewayIntentBits.GuildIntegrations, // for discord Integrations
+		//GatewayIntentBits.GuildWebhooks, // for discord webhooks
+		//GatewayIntentBits.GuildInvites, // for guild invite managing
+		//GatewayIntentBits.GuildVoiceStates, // for voice related things
+		//GatewayIntentBits.GuildPresences, // for user presence things
+		GatewayIntentBits.GuildMessages, // for guild messages things
+		//GatewayIntentBits.GuildMessageReactions, // for message reactions things
+		//GatewayIntentBits.GuildMessageTyping, // for message typing things
+		//GatewayIntentBits.DirectMessages, // for dm messages
+		//GatewayIntentBits.DirectMessageReactions, // for dm message reaction
+		//GatewayIntentBits.DirectMessageTyping, // for dm message typing
+		GatewayIntentBits.MessageContent, // enable if you need message content things
 	],
 });
-console.log(`[7;33mdiscord.js v${Discord.version}[0;33m with [32m${client.guilds.cache.size+1}[33m guilds[0m`);
+console.log(`[7;33mdiscord.js v${require("discord.js/package.json").version}[0;33m with [32m${client.guilds.cache.size+1}[33m guilds[0m`);
 // Загрузить настройки
 const { prefix, state, token } = require('./config.json');
 // Отладка
@@ -43,14 +44,14 @@ client.once('ready', () => {
 	// или
 	client.user.setPresence({
 		activities: [
-      { name: `команду > ${prefix}ping или ${prefix}help`, type: 2 }
-    ],
-    status: state[0],
+			{ name: `команду > ${prefix}ping или ${prefix}help`, type: 2 }
+		],
+		status: state[0],
 	})
 });
 
 // Сообщение подлючившимуся к каналу (не тестировано)
-client.on('guildMemberAdd', async (member) => {
+client.on('guildMemberAdd', async member => {
 	// Отправляет сообщение по назначенному каналу на сервере
 	const channel = member.guild.channels.find(ch => ch.name === 'песочница');
 	// Не реагировать, если канал не найден на этом сервере
@@ -60,7 +61,7 @@ client.on('guildMemberAdd', async (member) => {
 });
 
 // Прочитать сообщение и совершить действие
-client.on('messageCreate', async (message) => {
+client.on('messageCreate', async message => {
 	// Запретить боту реагировать на сообщения ботов
 	if (message.author.bot) {
 		// Реагировать только на сообщения других ботов
@@ -72,32 +73,6 @@ client.on('messageCreate', async (message) => {
 			const command = message.content.slice(prefix.length).toLowerCase();
 		
 			switch(command) {
-				case 'help': {
-					const embed = new Discord.EmbedBuilder()
-						.setColor(0xFF0000) // RED
-						.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-						.setAuthor(
-							{ name: 'Документация', iconURL: 'https://i.imgur.com/wSTFkRM.png', url: 'https://discordjs.guide' }
-						)
-						.setTitle('Команды:')
-						.setURL('https://anidiots.guide/getting-started')
-						.setDescription('Доступные команды для бота')
-						.addFields(
-							{ name: `${prefix}help`, value: 'Эту команду вы выполнили', inline: true },
-							{ name: `${prefix}ping`, value: 'Отвечает на команду и добавляет реакцию', inline: true },
-						)
-						//.addBlankField()
-						//.setImage('https://i.imgur.com/wSTFkRM.png')
-						.setTimestamp()
-						.setFooter(
-							{ text: '? Бывает ещё мелкий текст перед Title', iconURL: 'https://i.imgur.com/wSTFkRM.png' }
-						);
-					message.channel.send({ embeds: [embed] });
-					
-					message.react('\ud83d\udc41\u200d\ud83d\udde8'); // :eye_in_speech_bubble:
-					console.log(`[36m> ${message.author.username}:[0m ответ на команду [45m${command}[0m`);
-					break;
-				}
 				case 'ping': {
 					// Ответ отправителю сообщения
 					message.reply('pong :wave:');
@@ -119,6 +94,51 @@ client.on('messageCreate', async (message) => {
 		} else {
 			console.log(`[36m> ${message.author.username}:[0m отправил [90m"${message}"[0m`);
 		}
+	}
+});
+
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+	
+	if (interaction.commandName === 'help') {
+		const guildId = process.env.GUILD_ID_X18;
+		const currentCommands = await client.application.commands.fetch(
+		//	guildId && { guildId: guildId } // global or guildId
+		);
+		if (!currentCommands?.size) return;
+		
+		const fields = [];
+		currentCommands.forEach((cmd) => {
+			const field = {
+				name: `${cmd.id}`,
+				value: `**${prefix}${cmd.name}**\n${cmd.description}`,
+				inline: false
+			}
+			fields.push(field);
+		});
+		
+		const embed = new EmbedBuilder()
+			.setColor(0xFF0000) // RED
+			.setThumbnail('https://github.com/discordjs/guide/blob/main/guide/.vuepress/assets/discord-avatar-djs.png?raw=true')
+			.setAuthor({
+				iconURL: 'https://cdn.discordapp.com/embed/avatars/2.png',
+				name: 'Документация',
+				url: 'https://discordjs.guide'
+			})
+			.setTitle('Команды:')
+			.setURL('https://anidiots.guide/getting-started')
+			.setDescription(`Доступны ${currentCommands.size} команды для бота`)
+			.addFields(fields)
+			//.addField({ name: '\u200b', value: '\u200b' })
+			//.setImage('https://cdn.discordapp.com/embed/avatars/0.png')
+			.setTimestamp()
+			.setFooter({
+				text: '? Бывает ещё мелкий текст перед Title',
+				iconURL: 'https://i.imgur.com/wSTFkRM.png'
+			});
+		await interaction.reply({ embeds: [embed], ephemeral: true });
+		
+		console.log(`[36m> ${interaction.user.username}:[0m ответ на слеш-команду [45m${interaction.commandName}[0m`);
 	}
 });
 

@@ -51,10 +51,10 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Install node.js ${{ matrix.node-version }} (sample)
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -69,4 +69,4 @@ jobs:
           npm run build --if-present
           npm run start
         env:
-          TOKEN: ${{ secrets.CONFIG_BOT_TOKEN }}
+          repo-token: ${{ secrets.CONFIG_BOT_TOKEN }}

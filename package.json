@@ -1,31 +1,33 @@
 {
 	"name": "essence_discordjs_bot",
-	"version": "0.2.0",
-	"author": "h8nor",
+	"displayName": "e$$ence",
 	"description": "Bot e$$ence made using DiscordJS",
+	"version": "0.2.1",
+	"license": "AGPL-3.0",
+	"bugs": {
+		"url": "https://github.com/h8nor/essence.discordjs.bot/issues"
+	},
+	"homepage": "https://github.com/h8nor/essence.discordjs.bot#README",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/h8nor/essence.discordjs.bot"
+	},
+	"publisher": "h8nor",
+	"engines": {
+		"node": "^16.11 || >=18",
+		"vscode": "^1.74.0"
+	},
 	"keywords": [
 		"bot",
 		"client",
 		"discordjs"
 	],
-	"license": "AGPL-3.0",
 	"main": "essence_bot.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node --max-old-space-size=20 --expose-gc essence_bot.js"
 	},
-	"repository": {
-		"type": "git",
-		"url": "github.com/h8nor/essence.discordjs.bot"
-	},
-	"bugs": {
-		"url": "https://github.com/h8nor/essence.discordjs.bot/issues"
-	},
-	"homepage": "https://github.com/h8nor/essence.discordjs.bot#README",
 	"dependencies": {
-		"discord.js": "^14.3"
-	},
-	"engines": {
-		"node": ">=16.9.0"
+		"discord.js": "^14.14.0"
 	}
 }
